@@ -24,8 +24,8 @@ nav{position:sticky;top:0;z-index:100;background:rgba(13,11,9,0.97);border-botto
 
 .hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:5rem 3rem 4rem;overflow:hidden}
 .hero-media{position:absolute;inset:0;background:var(--dark2)}
-.hero-media video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.5}
-.hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(13,11,9,0.95) 0%,rgba(13,11,9,0.3) 50%,rgba(13,11,9,0.05) 100%)}
+.hero-media iframe{position:absolute;top:50%;left:50%;width:177.77vh;height:100vh;min-width:100%;min-height:56.25vw;transform:translate(-50%,-50%);pointer-events:none;opacity:0.5}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(13,11,9,0.97) 0%,rgba(13,11,9,0.4) 50%,rgba(13,11,9,0.1) 100%)}
 .hero-content{position:relative;z-index:2;max-width:680px;animation:fadeUp 1.2s ease forwards}
 @keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
 .eyebrow{font-size:9px;letter-spacing:0.35em;text-transform:uppercase;color:var(--gold);margin-bottom:1.25rem;font-weight:400}
@@ -52,7 +52,8 @@ nav{position:sticky;top:0;z-index:100;background:rgba(13,11,9,0.97);border-botto
 .rooms-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:1px;background:var(--gold-faint);margin-top:3.5rem}
 .room-card{background:var(--dark4);overflow:hidden;transition:background 0.3s}
 .room-card:hover{background:#1a1710}
-.room-video{width:100%;aspect-ratio:16/10;object-fit:cover;opacity:0.85;display:block}
+.room-media{position:relative;width:100%;aspect-ratio:16/10;overflow:hidden;background:var(--dark)}
+.room-media iframe{position:absolute;top:50%;left:50%;width:177.77%;height:177.77%;transform:translate(-50%,-50%);pointer-events:none}
 .room-info{padding:1.75rem 2rem 2rem}
 .room-num{font-size:8px;letter-spacing:0.25em;text-transform:uppercase;color:var(--dimmed);margin-bottom:0.4rem}
 .room-name{font-family:var(--serif);font-size:1.2rem;font-style:italic;color:var(--text);margin-bottom:0.8rem;font-weight:300}
@@ -107,11 +108,10 @@ footer{background:#060504;border-top:1px solid var(--gold-faint);padding:4rem 3r
   </ul>
 </nav>
 
+<!-- HERO — Cabin Video -->
 <section class="hero">
   <div class="hero-media">
-    <video autoplay muted loop playsinline>
-      <source src="Hero Cabin Video.mp4" type="video/mp4">
-    </video>
+    <iframe src="https://www.youtube.com/embed/JO2HEe3cXgQ?autoplay=1&mute=1&loop=1&playlist=JO2HEe3cXgQ&controls=0&showinfo=0&rel=0&modestbranding=1" frameborder="0" allow="autoplay"></iframe>
   </div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
@@ -127,6 +127,7 @@ footer{background:#060504;border-top:1px solid var(--gold-faint);padding:4rem 3r
   </div>
 </section>
 
+<!-- VISION -->
 <div class="section-bg" id="vision">
   <div class="inner">
     <div class="reveal">
@@ -144,6 +145,7 @@ footer{background:#060504;border-top:1px solid var(--gold-faint);padding:4rem 3r
   </div>
 </div>
 
+<!-- ROOMS -->
 <div class="section-bg2" id="rooms">
   <div class="inner">
     <div class="reveal">
@@ -153,10 +155,11 @@ footer{background:#060504;border-top:1px solid var(--gold-faint);padding:4rem 3r
     </div>
     <div class="rooms-grid reveal">
 
+      <!-- Pool & Sauna -->
       <div class="room-card">
-        <video class="room-video" autoplay muted loop playsinline>
-          <source src="Pool and Sauna.mp4" type="video/mp4">
-        </video>
+        <div class="room-media">
+          <iframe src="https://www.youtube.com/embed/5Efsyo7c4ws?autoplay=1&mute=1&loop=1&playlist=5Efsyo7c4ws&controls=0&showinfo=0&rel=0&modestbranding=1" frameborder="0" allow="autoplay"></iframe>
+        </div>
         <div class="room-info">
           <div class="room-num">Room 01</div>
           <div class="room-name">The Pool & Sauna</div>
@@ -165,46 +168,50 @@ footer{background:#060504;border-top:1px solid var(--gold-faint);padding:4rem 3r
         </div>
       </div>
 
+      <!-- Game Room -->
       <div class="room-card">
-        <video class="room-video" autoplay muted loop playsinline>
-          <source src="Yoga Room.mp4" type="video/mp4">
-        </video>
+        <div class="room-media">
+          <iframe src="https://www.youtube.com/embed/YYSOZGWSu5c?autoplay=1&mute=1&loop=1&playlist=YYSOZGWSu5c&controls=0&showinfo=0&rel=0&modestbranding=1" frameborder="0" allow="autoplay"></iframe>
+        </div>
         <div class="room-info">
           <div class="room-num">Room 02</div>
-          <div class="room-name">The Yoga & Meditation Room</div>
-          <div class="room-desc">A bare room on the second floor. Clay plaster walls. Two linen mats on warm stone. A single window facing the entire mountain range. The kind of room that slows your heart rate the moment you enter.</div>
-          <div class="room-detail">Clay walls &mdash; heated stone floor &mdash; mountain window &mdash; singing bowl</div>
+          <div class="room-name">The Game & Poker Room</div>
+          <div class="room-desc">Slate pool table. Round dark oak poker table with six leather chairs. Dartboard. Chess. Chalkboard walls full of scores and sketches. A vinyl record player in the corner. No screens. Ever.</div>
+          <div class="room-detail">Slate pool table &mdash; poker table &mdash; dartboard &mdash; chalkboard walls &mdash; vinyl</div>
         </div>
       </div>
 
+      <!-- Art Room -->
       <div class="room-card">
-        <video class="room-video" autoplay muted loop playsinline>
-          <source src="Apres Bar lounge.mp4" type="video/mp4">
-        </video>
+        <div class="room-media">
+          <iframe src="https://www.youtube.com/embed/RM5MZG9BDjw?autoplay=1&mute=1&loop=1&playlist=RM5MZG9BDjw&controls=0&showinfo=0&rel=0&modestbranding=1" frameborder="0" allow="autoplay"></iframe>
+        </div>
         <div class="room-info">
           <div class="room-num">Room 03</div>
-          <div class="room-name">The Après Bar & Lounge</div>
-          <div class="room-desc">A deep linen sectional sofa beside a stone open bar with copper taps. Large plants in clay pots. A large abstract oil painting above the sofa. Skis off. Always open to friends.</div>
-          <div class="room-detail">Stone bar &mdash; copper taps &mdash; linen sofa &mdash; clay planters &mdash; abstract art</div>
-        </div>
-      </div>
-
-      <div class="room-card">
-        <video class="room-video" autoplay muted loop playsinline>
-          <source src="Artroom.mp4" type="video/mp4">
-        </video>
-        <div class="room-info">
-          <div class="room-num">Room 04</div>
           <div class="room-name">The Art Room</div>
           <div class="room-desc">A raw wood worktable covered in paint marks and charcoal dust. Canvases leaning on every dark stone wall. An unfinished painting on an easel facing the north window. The room itself is the art piece.</div>
           <div class="room-detail">Raw worktable &mdash; north-facing light &mdash; clay plaster walls &mdash; no technology</div>
         </div>
       </div>
 
+      <!-- Bathroom -->
       <div class="room-card">
-        <video class="room-video" autoplay muted loop playsinline>
-          <source src="Main Bedroom.mp4" type="video/mp4">
-        </video>
+        <div class="room-media">
+          <iframe src="https://www.youtube.com/embed/WwTYFniyzQw?autoplay=1&mute=1&loop=1&playlist=WwTYFniyzQw&controls=0&showinfo=0&rel=0&modestbranding=1" frameborder="0" allow="autoplay"></iframe>
+        </div>
+        <div class="room-info">
+          <div class="room-num">Room 04</div>
+          <div class="room-name">The Bathroom</div>
+          <div class="room-desc">A deep freestanding stone soaking tub. River stone floor. Copper fixtures. Eucalyptus hanging from the shower rod. A small watercolor beside the tub — soft blues and greys bleeding into each other.</div>
+          <div class="room-detail">Stone tub &mdash; copper fixtures &mdash; river stone &mdash; eucalyptus &mdash; handmade ceramics</div>
+        </div>
+      </div>
+
+      <!-- Bedroom -->
+      <div class="room-card">
+        <div class="room-media">
+          <iframe src="https://www.youtube.com/embed/pGxmeZgu0GA?autoplay=1&mute=1&loop=1&playlist=pGxmeZgu0GA&controls=0&showinfo=0&rel=0&modestbranding=1" frameborder="0" allow="autoplay"></iframe>
+        </div>
         <div class="room-info">
           <div class="room-num">Room 05</div>
           <div class="room-name">The Main Bedroom</div>
@@ -213,15 +220,16 @@ footer{background:#060504;border-top:1px solid var(--gold-faint);padding:4rem 3r
         </div>
       </div>
 
+      <!-- Yoga Room -->
       <div class="room-card">
-        <video class="room-video" autoplay muted loop playsinline>
-          <source src="bathroom.mp4" type="video/mp4">
-        </video>
+        <div class="room-media">
+          <iframe src="https://www.youtube.com/embed/-_PY0sBub8Q?autoplay=1&mute=1&loop=1&playlist=-_PY0sBub8Q&controls=0&showinfo=0&rel=0&modestbranding=1" frameborder="0" allow="autoplay"></iframe>
+        </div>
         <div class="room-info">
           <div class="room-num">Room 06</div>
-          <div class="room-name">The Bathroom</div>
-          <div class="room-desc">A deep freestanding stone soaking tub. River stone floor. Copper fixtures. Eucalyptus hanging from the shower rod. A small watercolor beside the tub — soft blues and greys bleeding into each other.</div>
-          <div class="room-detail">Stone tub &mdash; copper fixtures &mdash; river stone &mdash; eucalyptus &mdash; handmade ceramics</div>
+          <div class="room-name">The Yoga & Meditation Room</div>
+          <div class="room-desc">A bare room on the second floor. Clay plaster walls. Two linen mats on warm stone. A single window facing the entire mountain range. The kind of room that slows your heart rate the moment you enter.</div>
+          <div class="room-detail">Clay walls &mdash; heated stone floor &mdash; mountain window &mdash; singing bowl</div>
         </div>
       </div>
 
@@ -229,12 +237,14 @@ footer{background:#060504;border-top:1px solid var(--gold-faint);padding:4rem 3r
   </div>
 </div>
 
+<!-- QUOTE -->
 <div class="quote-band">
   <span class="quote-mark">&ldquo;</span>
   <p class="quote-text">No televisions. No notifications. No noise. Just fire, water, cold air, and the people you actually want to be with.</p>
   <div class="quote-attr">The Solitude Skier &mdash; Design Principle</div>
 </div>
 
+<!-- MATERIALS -->
 <div class="section-bg" id="materials">
   <div class="inner">
     <div class="reveal">
@@ -251,6 +261,7 @@ footer{background:#060504;border-top:1px solid var(--gold-faint);padding:4rem 3r
   </div>
 </div>
 
+<!-- LOCATION -->
 <div class="section-bg2" id="location">
   <div class="inner">
     <div class="reveal">
