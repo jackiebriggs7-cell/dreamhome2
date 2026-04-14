@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Solitude Skier Lodge — Whistler, BC</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --gold:#c8a96e;--gold-dim:rgba(200,169,110,0.4);--gold-faint:rgba(200,169,110,0.12);
+  --dark:#0d0b09;--dark2:#111008;--dark3:#0a0907;--dark4:#161310;
+  --text:#f0ebe2;--muted:rgba(240,235,226,0.5);--dimmed:rgba(240,235,226,0.25);
+  --serif:'Cormorant Garamond',Georgia,serif;--sans:'Jost',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--dark);color:var(--text);font-family:var(--sans);font-weight:300;overflow-x:hidden}
+
+nav{position:sticky;top:0;z-index:100;background:rgba(13,11,9,0.97);border-bottom:1px solid var(--gold-faint);padding:0 3rem;height:60px;display:flex;justify-content:space-between;align-items:center;backdrop-filter:blur(8px)}
+.nav-logo{font-family:var(--serif);font-size:1rem;font-style:italic;color:var(--gold)}
+.nav-links{display:flex;gap:2.5rem;list-style:none}
+.nav-links a{font-size:10px;letter-spacing:0.25em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color 0.3s;font-weight:400}
+.nav-links a:hover{color:var(--gold)}
+
+.hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:5rem 3rem 4rem;overflow:hidden}
+.hero-media{position:absolute;inset:0;background:var(--dark2)}
+.hero-media video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.5}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(13,11,9,0.95) 0%,rgba(13,11,9,0.3) 50%,rgba(13,11,9,0.05) 100%)}
+.hero-content{position:relative;z-index:2;max-width:680px;animation:fadeUp 1.2s ease forwards}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+.eyebrow{font-size:9px;letter-spacing:0.35em;text-transform:uppercase;color:var(--gold);margin-bottom:1.25rem;font-weight:400}
+.hero h1{font-family:var(--serif);font-size:clamp(3rem,7vw,6rem);font-weight:300;font-style:italic;line-height:1.0;color:var(--text);margin-bottom:1.5rem}
+.hero-sub{font-size:0.95rem;color:var(--muted);line-height:1.9;max-width:460px;font-weight:300}
+.hero-stats{display:flex;gap:3rem;margin-top:3rem;padding-top:2rem;border-top:1px solid var(--gold-faint);flex-wrap:wrap}
+.stat-label{font-size:8px;letter-spacing:0.25em;text-transform:uppercase;color:var(--dimmed);margin-bottom:0.35rem}
+.stat-value{font-size:12px;color:var(--gold);letter-spacing:0.08em;font-weight:400}
+
+.section-bg{background:var(--dark4);padding:6rem 3rem}
+.section-bg2{background:var(--dark3);padding:6rem 3rem}
+.inner{max-width:1200px;margin:0 auto}
+.section-title{font-family:var(--serif);font-size:clamp(2rem,4vw,3.5rem);font-weight:300;font-style:italic;color:var(--text);line-height:1.15;margin-bottom:1.25rem}
+.section-body{font-size:0.9rem;color:var(--muted);line-height:1.9;max-width:540px;font-weight:300}
+.gold-line{width:36px;height:1px;background:var(--gold-dim);margin:1.5rem 0}
+
+.philosophy-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--gold-faint);margin-top:3.5rem}
+.phil-cell{background:var(--dark4);padding:2.5rem 2rem;transition:background 0.3s}
+.phil-cell:hover{background:#1c1810}
+.phil-num{font-family:var(--serif);font-size:2.5rem;font-weight:300;color:rgba(200,169,110,0.15);line-height:1;margin-bottom:1rem}
+.phil-label{font-size:9px;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:0.6rem}
+.phil-text{font-size:0.8rem;color:var(--muted);line-height:1.8;font-weight:300}
+
+.rooms-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:1px;background:var(--gold-faint);margin-top:3.5rem}
+.room-card{background:var(--dark4);overflow:hidden;transition:background 0.3s}
+.room-card:hover{background:#1a1710}
+.room-video{width:100%;aspect-ratio:16/10;object-fit:cover;opacity:0.85;display:block}
+.room-info{padding:1.75rem 2rem 2rem}
+.room-num{font-size:8px;letter-spacing:0.25em;text-transform:uppercase;color:var(--dimmed);margin-bottom:0.4rem}
+.room-name{font-family:var(--serif);font-size:1.2rem;font-style:italic;color:var(--text);margin-bottom:0.8rem;font-weight:300}
+.room-desc{font-size:0.8rem;color:var(--muted);line-height:1.85;font-weight:300}
+.room-detail{margin-top:1.25rem;padding-top:1.25rem;border-top:1px solid var(--gold-faint);font-size:0.72rem;color:rgba(200,169,110,0.45);letter-spacing:0.04em;line-height:1.6}
+
+.quote-band{background:var(--dark3);border-top:1px solid var(--gold-faint);border-bottom:1px solid var(--gold-faint);padding:7rem 3rem;text-align:center}
+.quote-mark{font-family:var(--serif);font-size:5rem;color:rgba(200,169,110,0.15);line-height:0.4;margin-bottom:2.5rem;display:block}
+.quote-text{font-family:var(--serif);font-size:clamp(1.3rem,3vw,2rem);font-style:italic;font-weight:300;color:var(--text);max-width:720px;margin:0 auto 2rem;line-height:1.5}
+.quote-attr{font-size:9px;letter-spacing:0.3em;text-transform:uppercase;color:rgba(200,169,110,0.35)}
+
+.materials-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:3.5rem}
+.mat{text-align:center}
+.mat-swatch{width:100%;aspect-ratio:1;margin-bottom:1rem;border:1px solid var(--gold-faint)}
+.sw-stone{background:#2a2520}.sw-wood{background:#1a1208}.sw-clay{background:#573820}.sw-linen{background:#a89070}
+.mat-name{font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:0.4rem;font-weight:400}
+.mat-desc{font-size:0.75rem;color:var(--dimmed);line-height:1.6}
+
+.location-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--gold-faint);margin-top:3.5rem}
+.loc-stat{background:var(--dark4);padding:2rem}
+.loc-label{font-size:8px;letter-spacing:0.25em;text-transform:uppercase;color:var(--dimmed);margin-bottom:0.4rem}
+.loc-value{font-size:0.9rem;color:var(--text);font-weight:300;line-height:1.5}
+
+footer{background:#060504;border-top:1px solid var(--gold-faint);padding:4rem 3rem;text-align:center}
+.footer-logo{font-family:var(--serif);font-size:1.6rem;font-style:italic;font-weight:300;color:var(--text);margin-bottom:0.5rem}
+.footer-divider{width:36px;height:1px;background:var(--gold-dim);margin:1.5rem auto}
+.footer-sub{font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--dimmed);line-height:2}
+
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.8s ease,transform 0.8s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+@media(max-width:768px){
+  nav{padding:0 1.5rem}.nav-links{display:none}
+  .hero{padding:3rem 1.5rem}
+  .section-bg,.section-bg2{padding:4rem 1.5rem}
+  .philosophy-grid{grid-template-columns:1fr 1fr}
+  .materials-grid{grid-template-columns:repeat(2,1fr)}
+  .location-stats{grid-template-columns:1fr}
+  .quote-band{padding:5rem 1.5rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">The Solitude Skier</div>
+  <ul class="nav-links">
+    <li><a href="#vision">The Vision</a></li>
+    <li><a href="#rooms">The Rooms</a></li>
+    <li><a href="#materials">Materials</a></li>
+    <li><a href="#location">Whistler</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-media">
+    <video autoplay muted loop playsinline>
+      <source src="Hero Cabin Video.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="eyebrow">Whistler, British Columbia &mdash; Ski-in / Ski-out</div>
+    <h1>The Solitude<br>Skier Lodge</h1>
+    <p class="hero-sub">A private mountain sanctuary built from stone, wood, clay, and linen. No screens. No noise. Just fire, water, mountain air, and the people who matter.</p>
+    <div class="hero-stats">
+      <div><div class="stat-label">Location</div><div class="stat-value">Whistler, BC</div></div>
+      <div><div class="stat-label">Access</div><div class="stat-value">Ski-in / Ski-out</div></div>
+      <div><div class="stat-label">Capacity</div><div class="stat-value">Up to 6 guests</div></div>
+      <div><div class="stat-label">Philosophy</div><div class="stat-value">Screen-free</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="section-bg" id="vision">
+  <div class="inner">
+    <div class="reveal">
+      <div class="eyebrow">The Vision</div>
+      <h2 class="section-title">Designed for presence.<br>Not performance.</h2>
+      <div class="gold-line"></div>
+      <p class="section-body">This is not a vacation rental. It is a philosophy made physical — the belief that the best life is a quiet one, lived close to something larger than yourself. Every room serves the body, the mind, or the soul. Nothing else.</p>
+    </div>
+    <div class="philosophy-grid reveal">
+      <div class="phil-cell"><div class="phil-num">01</div><div class="phil-label">No Screens</div><div class="phil-text">No televisions. No notifications. Chalkboards, books, games, and conversation replace every screen.</div></div>
+      <div class="phil-cell"><div class="phil-num">02</div><div class="phil-label">All Natural</div><div class="phil-text">Every surface is stone, raw wood, fired clay, or woven linen. Nothing synthetic. The home breathes with you.</div></div>
+      <div class="phil-cell"><div class="phil-num">03</div><div class="phil-label">Human Scale</div><div class="phil-text">Built for a small circle. Intimate enough to feel personal, spacious enough to breathe. A lodge that holds you.</div></div>
+      <div class="phil-cell"><div class="phil-num">04</div><div class="phil-label">Mountain First</div><div class="phil-text">Ski-in ski-out. Every room faces the slope or the peaks. The mountain is not the backdrop — it is the reason.</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="section-bg2" id="rooms">
+  <div class="inner">
+    <div class="reveal">
+      <div class="eyebrow">The Rooms</div>
+      <h2 class="section-title">Every room has a purpose.<br>Every purpose serves the human.</h2>
+      <div class="gold-line"></div>
+    </div>
+    <div class="rooms-grid reveal">
+
+      <div class="room-card">
+        <video class="room-video" autoplay muted loop playsinline>
+          <source src="Pool and Sauna.mp4" type="video/mp4">
+        </video>
+        <div class="room-info">
+          <div class="room-num">Room 01</div>
+          <div class="room-name">The Pool & Sauna</div>
+          <div class="room-desc">A small dark stone heated pool beside a cedar-lined sauna. One skylight. Steam rising. No lanes, no lengths — just water to float in, think in, and recover in after a full day on the mountain.</div>
+          <div class="room-detail">Dark stone basin &mdash; cedar sauna &mdash; river stone floor &mdash; no screens</div>
+        </div>
+      </div>
+
+      <div class="room-card">
+        <video class="room-video" autoplay muted loop playsinline>
+          <source src="Yoga Room.mp4" type="video/mp4">
+        </video>
+        <div class="room-info">
+          <div class="room-num">Room 02</div>
+          <div class="room-name">The Yoga & Meditation Room</div>
+          <div class="room-desc">A bare room on the second floor. Clay plaster walls. Two linen mats on warm stone. A single window facing the entire mountain range. The kind of room that slows your heart rate the moment you enter.</div>
+          <div class="room-detail">Clay walls &mdash; heated stone floor &mdash; mountain window &mdash; singing bowl</div>
+        </div>
+      </div>
+
+      <div class="room-card">
+        <video class="room-video" autoplay muted loop playsinline>
+          <source src="Apres Bar lounge.mp4" type="video/mp4">
+        </video>
+        <div class="room-info">
+          <div class="room-num">Room 03</div>
+          <div class="room-name">The Après Bar & Lounge</div>
+          <div class="room-desc">A deep linen sectional sofa beside a stone open bar with copper taps. Large plants in clay pots. A large abstract oil painting above the sofa. Skis off. Always open to friends.</div>
+          <div class="room-detail">Stone bar &mdash; copper taps &mdash; linen sofa &mdash; clay planters &mdash; abstract art</div>
+        </div>
+      </div>
+
+      <div class="room-card">
+        <video class="room-video" autoplay muted loop playsinline>
+          <source src="Artroom.mp4" type="video/mp4">
+        </video>
+        <div class="room-info">
+          <div class="room-num">Room 04</div>
+          <div class="room-name">The Art Room</div>
+          <div class="room-desc">A raw wood worktable covered in paint marks and charcoal dust. Canvases leaning on every dark stone wall. An unfinished painting on an easel facing the north window. The room itself is the art piece.</div>
+          <div class="room-detail">Raw worktable &mdash; north-facing light &mdash; clay plaster walls &mdash; no technology</div>
+        </div>
+      </div>
+
+      <div class="room-card">
+        <video class="room-video" autoplay muted loop playsinline>
+          <source src="Main Bedroom.mp4" type="video/mp4">
+        </video>
+        <div class="room-info">
+          <div class="room-num">Room 05</div>
+          <div class="room-name">The Main Bedroom</div>
+          <div class="room-desc">A low dark oak platform bed. Deep linen bedding and layered wool throws. A candle and a paperback on the bedside table. Floor-to-ceiling mountain window. Designed only for deep rest and waking slowly to a view.</div>
+          <div class="room-detail">Dark oak bed &mdash; linen &mdash; mountain window &mdash; no alarm clock &mdash; no screens</div>
+        </div>
+      </div>
+
+      <div class="room-card">
+        <video class="room-video" autoplay muted loop playsinline>
+          <source src="bathroom.mp4" type="video/mp4">
+        </video>
+        <div class="room-info">
+          <div class="room-num">Room 06</div>
+          <div class="room-name">The Bathroom</div>
+          <div class="room-desc">A deep freestanding stone soaking tub. River stone floor. Copper fixtures. Eucalyptus hanging from the shower rod. A small watercolor beside the tub — soft blues and greys bleeding into each other.</div>
+          <div class="room-detail">Stone tub &mdash; copper fixtures &mdash; river stone &mdash; eucalyptus &mdash; handmade ceramics</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="quote-band">
+  <span class="quote-mark">&ldquo;</span>
+  <p class="quote-text">No televisions. No notifications. No noise. Just fire, water, cold air, and the people you actually want to be with.</p>
+  <div class="quote-attr">The Solitude Skier &mdash; Design Principle</div>
+</div>
+
+<div class="section-bg" id="materials">
+  <div class="inner">
+    <div class="reveal">
+      <div class="eyebrow">Materials Palette</div>
+      <h2 class="section-title">Only what the earth provides.</h2>
+      <div class="gold-line"></div>
+    </div>
+    <div class="materials-grid reveal">
+      <div class="mat"><div class="mat-swatch sw-stone"></div><div class="mat-name">Stone</div><div class="mat-desc">Raw granite + river stone throughout</div></div>
+      <div class="mat"><div class="mat-swatch sw-wood"></div><div class="mat-name">Dark Wood</div><div class="mat-desc">Charred cedar + raw dark oak</div></div>
+      <div class="mat"><div class="mat-swatch sw-clay"></div><div class="mat-name">Clay</div><div class="mat-desc">Hand-plastered walls + fired tile</div></div>
+      <div class="mat"><div class="mat-swatch sw-linen"></div><div class="mat-name">Linen</div><div class="mat-desc">Raw linen textiles + undyed wool</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="section-bg2" id="location">
+  <div class="inner">
+    <div class="reveal">
+      <div class="eyebrow">The Location</div>
+      <h2 class="section-title">Whistler, BC.<br>The mountain is the address.</h2>
+      <div class="gold-line"></div>
+    </div>
+    <div class="location-stats reveal">
+      <div class="loc-stat"><div class="loc-label">Location</div><div class="loc-value">Whistler, British Columbia, Canada</div></div>
+      <div class="loc-stat"><div class="loc-label">Access</div><div class="loc-value">Ski-in / Ski-out &mdash; the slope is the front garden</div></div>
+      <div class="loc-stat"><div class="loc-label">Setting</div><div class="loc-value">Solitary on open pistes, Coast Mountains panorama</div></div>
+      <div class="loc-stat"><div class="loc-label">Nearest Lift</div><div class="loc-value">Visible in the misty distance &mdash; close enough to walk</div></div>
+      <div class="loc-stat"><div class="loc-label">Neighbours</div><div class="loc-value">None visible. The mountain is the only one.</div></div>
+      <div class="loc-stat"><div class="loc-label">Architecture</div><div class="loc-value">Nordic black lodge &mdash; steep pitched roof &mdash; dark wood + stone</div></div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-logo">The Solitude Skier Lodge</div>
+  <div class="footer-divider"></div>
+  <div class="footer-sub">
+    Whistler, BC &mdash; Stone, Wood, Clay & Linen<br>
+    Screen-free by design &mdash; A dream residence for the digital nomad
+  </div>
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
